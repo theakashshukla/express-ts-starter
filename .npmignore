@@ -1,8 +1,4 @@
 node_modules
 dist
-tests
-coverage
-.env
-.env.production
-.git
-.gitignore
+*.log
+*.env
