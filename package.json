@@ -1,6 +1,6 @@
 {
-  "name": "express-typescript-starter",
-  "version": "1.0.0",
+  "name": "@astreak/express-typescript-starter",
+  "version": "1.0.1",
   "main": "dist/app.js",
   "scripts": {
     "dev": "nodemon --exec ts-node src/app.ts",

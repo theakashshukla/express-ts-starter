@@ -9,7 +9,7 @@
 
 
 build/Release
-dist
+dist/
 
 # Dependency directories
 node_modules/
