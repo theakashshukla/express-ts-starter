@@ -1,7 +1,19 @@
 {
   "name": "@astreak/express-ts-starter",
-  "version": "1.0.0",
+  "version": "1.5.0",
   "main": "src/app.ts",
+  "types": "src/app.ts", 
+  "files": [
+    "src",      
+    "test",   
+    ".env.example",
+    ".gitignore",
+    ".prettierrc.json",
+    "Dockerfile",
+    "docker-compose.yml",     
+    "jest.config.js",  
+    "tsconfig.json"     
+  ],
   "scripts": {
     "dev": "nodemon --exec ts-node src/app.ts",
     "build": "tsc",
@@ -16,9 +28,6 @@
   "bugs": {
     "url": "https://github.com/theakashshukla/express-ts-starter/issues"
   },
-  "files": [
-    "src"  
-  ],
   "keywords": [
     "express",
     "typescript",

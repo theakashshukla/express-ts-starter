@@ -29,53 +29,57 @@ Namskaram! 🙏 Welcome to the Express.js TypeScript Starter. This project provi
    ```bash
    git clone https://github.com/theakashshukla/express-ts-starter.git
    cd express-ts-starter
+   ```
 
 2. **Install Dependencies:**
 
    ```bash
    npm install
-
+   ```
 
 3. **Setup Environment Variables:**
 
-Create a .env file in the root of your project and add your environment variables. You can start by copying the example file:
+   Create a .env file in the root of your project and add your environment variables. You can start by copying the example file:
 
    ```bash
    cp .env.example .env
+   ```
 
-
-4. **Install TypeScript (if not already installed):**
+4. **Install TypeScript (if not already installed:**
 
    ```bash
    npm install -g typescript
+   ```
 
 5. **Start the Development Server:**
 
    ```bash
    npm run dev
-
+   ```
 
 6. **Production Build:**
 
    ```bash
    npm run build
-
+   ```
 
 7. **Run Prodcution Server**
 
    ```bash
     npm run start
-
+   ```
 
 8. **Run Tests:**
 
    ```bash
    npm run test
+   ```
 
 9. **Prettier:**
 
    ```bash
    npm run format
+   ```
 
 ## Project Structure
 
@@ -83,7 +87,6 @@ The project structure is designed to provide a clear and organized way to build 
 
 ```bash
 express-ts-starter/
-
 ├── src
 │   ├── config
 │   │   ├── dbConfig.ts
@@ -123,6 +126,8 @@ express-ts-starter/
 ├── tsconfig.json
 └── README.md
 
+```
+
 ## Scripts
 
 - `npm run dev`: Start the development server with Nodemon.
@@ -137,6 +142,7 @@ This project uses the Jest testing framework for writing unit and integration te
 
 ```bash
 npm run test
+```
 
 ## Contributing
 
@@ -145,4 +151,3 @@ Contributions are welcome! Feel free to open an issue or submit a pull request i
 ## License
 
 This project is open-source and available under the [ISC License](https://opensource.org/licenses/ISC).
-
