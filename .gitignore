@@ -6,6 +6,7 @@
 .env.production
 .env.test
 .env.development
+.npmrc
 
 
 build/Release

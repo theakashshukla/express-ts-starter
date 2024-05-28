@@ -1,6 +1,6 @@
 {
   "name": "@astreak/express-ts-starter",
-  "version": "1.5.0",
+  "version": "1.6.2",
   "main": "src/app.ts",
   "types": "src/app.ts", 
   "files": [
@@ -38,6 +38,10 @@
   "author": "Akash Shukla",
   "license": "ISC",
   "description": "Namskaram, this is a starter template for Express.js with TypeScript. It includes all the necessary packages and configurations to get started with your project. It also includes a basic user authentication system with JWT.",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/",
+    "access": "public"
+  },
   "dependencies": {
     "@types/bcrypt": "^5.0.2",
     "@types/express": "^4.17.21",
