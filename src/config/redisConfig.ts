@@ -1,5 +1,6 @@
 import { createClient, RedisClientType } from 'redis'
 import config from '.'
+import logger from '../utils/logger'
 
 let redisClient: RedisClientType | undefined
 
@@ -28,7 +29,7 @@ async function connectToRedis() {
     })
 
     redisClient.on('connect', () => {
-      console.log('Connected to Redis!')
+      logger.info('🚀 [redis]: Redis connected')
     })
 
     await redisClient.connect()

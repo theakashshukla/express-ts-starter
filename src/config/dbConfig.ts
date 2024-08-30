@@ -1,5 +1,6 @@
 import mongoose from 'mongoose'
 import config from '.'
+import logger from '../utils/logger'
 
 const MAX_RETRIES = 5
 const RETRY_DELAY = 2000
@@ -19,10 +20,10 @@ const connectToDatabase = async () => {
       }
 
       await mongoose.connect(config.dbUri)
-      await mongoose.connection.db.admin().ping()
+      await mongoose.connection.db?.admin().ping();
 
-      const dbName = mongoose.connection.db.databaseName
-      console.log(`🗄️ [database]: Database Connected to ${dbName}`)
+      const dbName = mongoose.connection.db?.databaseName
+      logger.info(`🗄️ [database]: Database Connected to ${dbName}`)
 
       return
     } catch (error) {

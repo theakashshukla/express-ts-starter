@@ -1,30 +1,37 @@
-import morgan, { StreamOptions } from 'morgan'
-import fs from 'fs'
-import path from 'path'
-import config from '../config'
+import { createLogger, format, transports } from 'winston';
+import DailyRotateFile from 'winston-daily-rotate-file';
 
-const accessLogStream = fs.createWriteStream(
-  path.join(__dirname, '../../logs/access.log'),
-  { flags: 'a' }
-)
+const logger = createLogger({
+  level: 'info', 
+  format: format.combine(
+    format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }), 
+    format.json() 
+  ),
+  transports: [
+    new transports.Console({
+      format: format.combine(
+        format.colorize(),
+        format.simple() // Simple format for console output
+      ),
+      level: process.env.NODE_ENV === 'production' ? 'error' : 'debug' // Higher level for production
+    }),
+    new DailyRotateFile({
+      filename: 'logs/error-%DATE%.log',
+      datePattern: 'YYYY-MM-DD',
+      zippedArchive: true, // Compress older logs
+      maxSize: '20m', // Maximum log file size
+      maxFiles: '10d', // Retain logs for 10 days
+      level: 'error', // Log only errors
+    }),
+    new DailyRotateFile({
+      filename: 'logs/combined-%DATE%.log',
+      datePattern: 'YYYY-MM-DD',
+      zippedArchive: true, // Compress older logs
+      maxSize: '20m', // Maximum log file size
+      maxFiles: '10d', // Retain logs for 10 days
+      level: 'info', // Log info and above
+    }),
+  ],
+});
 
-const stream: StreamOptions = {
-  write: (message) => accessLogStream.write(message),
-}
-
-const skip = () => {
-  const env = config.nodeEnv || 'development'
-  return env === 'test'
-}
-
-// Create a logger middleware based on the environment
-const morganMiddleware = () => {
-  const env = process.env.NODE_ENV || 'development'
-  if (env === 'production') {
-    return morgan('combined', { stream, skip })
-  } else {
-    return morgan('dev', { skip })
-  }
-}
-
-export default morganMiddleware
+export default logger;
