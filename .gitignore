@@ -11,6 +11,8 @@
 
 build/Release
 dist/
+logs/
+
 
 # Dependency directories
 node_modules/
