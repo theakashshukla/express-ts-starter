@@ -11,7 +11,7 @@
 
 build/Release
 dist/
-logs/
+/logs/
 
 
 # Dependency directories
